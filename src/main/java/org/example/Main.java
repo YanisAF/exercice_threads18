@@ -10,9 +10,9 @@ public class Main {
 
         Runnable addProduct = () -> {
             for (int i = 0; i < 10; i++) {
-                list.add("Product-" + i);
+                String element = Thread.currentThread().getName();
+                list.add(element+"Product-"+i);
             }
-            System.out.println("List finale des produits : "+Thread.currentThread().getName()+list);
         };
 
         Thread thread1 = new Thread(addProduct);
@@ -25,7 +25,7 @@ public class Main {
         thread2.join();
 
 
-
+        System.out.println("List finale des produits : "+list);
 
 
     }
